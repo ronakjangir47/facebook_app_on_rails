@@ -1,3 +1,0 @@
-<script>
-  window.top.location.href = decodeURIComponent(("<%= @oauth.url_for_oauth_code(:permissions => 'email,publish_stream') %>").replace(/&amp;/g,'&'))
-</script>
