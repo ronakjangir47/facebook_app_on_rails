@@ -1,10 +1,10 @@
 class FacebookController < ApplicationController
 
   def canvas
-  end
-
-  def welcome_on_app
-    redirect_to root_url
+    if params[:code]
+      access_token = FacebookOath.oath.get_access_token(params[:code])
+      @user_details = Koala::Facebook::API.new(access_token).get_object("me")
+    end
   end
 
 end
