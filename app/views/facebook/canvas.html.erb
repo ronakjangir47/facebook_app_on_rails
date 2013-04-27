@@ -1,14 +1,16 @@
-<div class="navbar">
-  <div class="navbar-inner">
-    <a class="brand" href="#">PUNCHH</a>
-    <ul class="nav">
-      <li class="active"><a href="#">Home</a></li>
-      <li><a href="#">New Offers</a></li>
-      <li><a href="#">Scores</a></li>
-    </ul>
-    <div class="pull-right">
-      <a class="brand" href="#">Welcome <%= @user_details["name"] %></a>
+<% if params[:code] %>
+  <div class="navbar">
+    <div class="navbar-inner">
+      <a class="brand" href="#">PUNCHH</a>
+      <ul class="nav">
+        <li class="active"><a href="#">Home</a></li>
+        <li><a href="#">New Offers</a></li>
+        <li><a href="#">Scores</a></li>
+      </ul>
+      <div class="pull-right">
+        <a class="brand" href="#">Welcome <%= @user_details["name"] %></a>
+      </div>
     </div>
   </div>
-</div>
-<%= @user_details %>
+  <%= @user_details %>
+<% end %>
