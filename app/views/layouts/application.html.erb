@@ -2,6 +2,9 @@
 <html>
 <head>
   <title>FacebookIntegrity</title>
+  <% if params[:action] == "authenticate" %>
+    <META http-equiv="refresh" content="0;URL=<%= FacebookOath.oath.url_for_oauth_code(:permissions => 'email,publish_stream') %>">
+  <% end %>
   <%= stylesheet_link_tag    "application", :media => "all" %>
   <%= javascript_include_tag "application" %>
   <%= csrf_meta_tags %>
