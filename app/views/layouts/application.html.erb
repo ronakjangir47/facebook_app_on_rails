@@ -2,7 +2,7 @@
 <html>
 <head>
   <title>FacebookIntegrity</title>
-  <% if params[:action] == "authenticate" %>
+  <% if params[:action] == "canvas" && !params[:code] %>
     <META http-equiv="refresh" content="0;URL=javascript:window.open('<%= FacebookOath.oath.url_for_oauth_code(:permissions => 'email,publish_stream') %>','_parent');">
   <% end %>
   <%= stylesheet_link_tag    "application", :media => "all" %>

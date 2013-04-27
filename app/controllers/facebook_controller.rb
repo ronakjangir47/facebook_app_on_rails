@@ -1,14 +1,10 @@
 class FacebookController < ApplicationController
 
-  def authenticate
-  end
-
-  def authenticate_result
-    redirect_to CANVAS_URL
+  def canvas
   end
 
   def welcome_on_app
-  #  redirect_to APP_URL
+    redirect_to root_url
   end
 
 end
