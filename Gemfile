@@ -16,7 +16,8 @@ group :assets do
 
   # See https://github.com/sstephenson/execjs#readme for more supported runtimes
   # gem 'therubyracer', :platforms => :ruby
-
+  gem 'anjlab-bootstrap-rails', '>= 2.1.0.3', require: 'bootstrap-rails'
+  gem 'font-awesome-rails'
   gem 'uglifier', '>= 1.0.3'
 end
 
@@ -25,6 +26,7 @@ group :production do
 end
 
 gem 'jquery-rails'
+gem 'quiet_assets'
 
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'
