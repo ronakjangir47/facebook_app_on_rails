@@ -29,7 +29,7 @@
     </a>
   </li>
   <li class="span4">
-    <a href="#" class="thumbnail">
+    <a id="app_request" href="#" class="thumbnail">
       <h1 class="text-center">INVITE</h1>
       <h1 class="text-center">MORE FRIENDS</h1>
     </a>
@@ -40,4 +40,24 @@
     <h3>Invite Freinds and earn Points</h3>
   </div>
 </div>
+  <script language="javascript" type="text/javascript">
+    FB.init({
+      appId: <%= FACEBOOK_APP_KEY %>,
+      xfbml: true,
+      ookie: true,
+      oauth: true
+    });
+    $('#app_request').click(function () {
+      FB.ui({
+        method: 'apprequests',
+        message: 'Hi This is my test app developed in RoR and integrated in FB',
+        data: 'Stores important links of user'
+      },requestCallback);
+      return false;
+    });
+    function requestCallback(response)
+    {
+      alert(response.to)
+    }
+</script>
 <% end %>
