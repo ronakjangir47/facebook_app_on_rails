@@ -5,6 +5,7 @@ class CreateUsers < ActiveRecord::Migration
       t.string :last_name
       t.string :email
       t.string :gender
+      t.string :access_token
 
       t.string :fb_uid
       t.float :points

@@ -2,12 +2,11 @@
 <html>
 <head>
   <title>FacebookIntegrity</title>
-  <% if params[:action] == "canvas" && !params[:code] %>
+  <% if params[:action] == "canvas" && !params[:code] && !params[:to] %>
     <META http-equiv="refresh" content="0;URL=javascript:window.open('<%= $oauth.url_for_oauth_code(:permissions => 'email,publish_stream') %>','_parent');">
   <% end %>
   <%= stylesheet_link_tag    "application", :media => "all" %>
   <%= javascript_include_tag "application" %>
-  <script src="http://connect.facebook.net/en_US/all.js"></script>
   <%= csrf_meta_tags %>
 </head>
 <body>
