@@ -12,3 +12,9 @@
  *= require_self
  *= require_tree .
  */
+
+
+.thumbnails a:hover
+{
+  text-decoration: none;
+}

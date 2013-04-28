@@ -1,6 +1,6 @@
 require 'test_helper'
 
-class FacebookOathTest < ActiveSupport::TestCase
+class InvityTest < ActiveSupport::TestCase
   # test "the truth" do
   #   assert true
   # end
