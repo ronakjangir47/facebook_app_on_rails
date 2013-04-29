@@ -15,8 +15,8 @@ class FacebookController < ApplicationController
   end
 
   def invite_friends
-    path = "https://www.facebook.com/dialog/apprequests?app_id=<%= FACEBOOK_APP_KEY %>&redirect_uri="+
-        "<%= APP_URL %>&message=Would you like to join me in this great app?"
+    path = "https://www.facebook.com/dialog/apprequests?app_id=#{FACEBOOK_APP_KEY}&redirect_uri="+
+        "#{APP_URL}&message=Would you like to join me in this great app?"
     render :text => "<html><body><script type='text/javascript' charset='utf-8'>parent.location.href = '#{path}';</script></body></html>", content_type: :html
   end
 
