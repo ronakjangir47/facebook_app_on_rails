@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>FacebookIntegrity</title>
+  <title>Sample Invitation App</title>
   <% unless current_user %>
     <META http-equiv="refresh" content="0;URL=javascript:window.open('<%= $oauth.url_for_oauth_code(:permissions => 'email,publish_stream') %>','_parent');">
   <% end %>
@@ -16,12 +16,12 @@
       <!--Sidebar content-->
     </div>
     <div class="page-header">
-      <h1>INVITIES <small>Invite Freinds And Earn Points</small></h1>
+      <h1>Sample Invitation App <small>Invite Friends And Earn Points</small></h1>
     </div>
     <% if current_user %>
       <div class="navbar navbar-inverse">
         <div class="navbar-inner">
-          <a class="brand" href="/">INVITIES</a>
+          <a class="brand" href="/">Sample Invitation App</a>
           <ul class="nav">
             <li class="active"><a href="/">Home</a></li>
             <li><a href="/invities">My Invities</a></li>
