@@ -23,8 +23,8 @@ class User < ActiveRecord::Base
     [first_name,last_name].join(" ")
   end
 
-  def store_invities(tos)
-    tos.split(",").each do |to_id|
+  def store_invities(tos = {})
+    tos.values.each do |to_id|
       if self.invities.create(:fb_uid => to_id).new_record?
         self.errors.add(:base, "You have already get points for inviting this friend!")
       else
