@@ -1,0 +1,16 @@
+<table class="table table-striped">
+  <tr>
+    <td>#</td>
+    <td>First Name</td>
+    <td>Last Name</td>
+    <td>Invited at</td>
+  </tr>
+  <% current_user.invities.each_with_index do |invity,i| %>
+    <tr>
+      <td><%= i+1 %></td>
+      <td><%= invity.first_name %></td>
+      <td><%= invity.last_name %></td>
+      <td width="30%"><%= invity.created_at.strftime("%b %d, %Y %H:%M") %></td>
+    </tr>
+  <% end %>
+</table>

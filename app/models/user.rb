@@ -25,7 +25,8 @@ class User < ActiveRecord::Base
 
   def store_invities(tos = {})
     tos.values.each do |to_id|
-      if self.invities.create(:fb_uid => to_id).new_record?
+      oauth.fql_query("select first_name,last_name from user where uid #{to_id}")[0]
+      if self.invities.create(:fb_uid => to_id,:first_name => to_details["first_name"], :last_name => to_details["last_name"]).new_record?
         self.errors.add(:base, "You have already get points for inviting this friend!")
       else
         self.points = self.points.to_i + 10
