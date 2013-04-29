@@ -50,6 +50,7 @@ FacebookIntegrity::Application.routes.draw do
   # just remember to delete public/index.html.
   root :to => 'facebook#canvas'
   get '/invities' => 'facebook#invities'
+  get '/invite_friends' => 'facebook#invite_friends'
 
   # See how all your routes lay out with "rake routes"
 

@@ -13,16 +13,10 @@
       </a>
     </li>
     <li class="span4">
-      <a id="app_request" href="#" class="thumbnail" onclick="sendRequest();">
+      <a id="app_request" href="/invite_friends" class="thumbnail" >
         <h1 class="text-center">INVITE</h1>
         <h1 class="text-center">FRIENDS</h1>
       </a>
     </li>
   </ul>
-  <script>
-    function sendRequest() {
-      window.top.location.href = "https://www.facebook.com/dialog/apprequests?app_id=<%= FACEBOOK_APP_KEY %>&redirect_uri="+
-        "<%= APP_URL %>&message=Would you like to join me in this great app?";
-    }
-  </script>
 <% end %>
