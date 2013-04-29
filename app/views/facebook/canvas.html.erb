@@ -1,20 +1,28 @@
-<ul class="thumbnails">
-  <li class="span4">
-    <a href="/invities" class="thumbnail">
-      <h1 class="text-center"><%= current_user.invities.count %></h1>
-      <h1 class="text-center">INVITIES</h1>
-    </a>
-  </li>
-  <li class="span4">
-    <a href="#" class="thumbnail">
-      <h1 class="text-center"><%= current_user.points.to_i %></h1>
-      <h1 class="text-center">POINTS</h1>
-    </a>
-  </li>
-  <li class="span4">
-    <a id="app_request" href="#" class="thumbnail" onclick="sendRequest();">
-      <h1 class="text-center">INVITE</h1>
-      <h1 class="text-center">FRIENDS</h1>
-    </a>
-  </li>
-</ul>
+<% if current_user %>
+  <ul class="thumbnails">
+    <li class="span4">
+      <a href="/invities" class="thumbnail">
+        <h1 class="text-center"><%= current_user.invities.count %></h1>
+        <h1 class="text-center">INVITIES</h1>
+      </a>
+    </li>
+    <li class="span4">
+      <a href="#" class="thumbnail">
+        <h1 class="text-center"><%= current_user.points.to_i %></h1>
+        <h1 class="text-center">POINTS</h1>
+      </a>
+    </li>
+    <li class="span4">
+      <a id="app_request" href="#" class="thumbnail" onclick="sendRequest();">
+        <h1 class="text-center">INVITE</h1>
+        <h1 class="text-center">FRIENDS</h1>
+      </a>
+    </li>
+  </ul>
+  <script>
+    function sendRequest() {
+      window.top.location.href = "https://www.facebook.com/dialog/apprequests?app_id=<%= FACEBOOK_APP_KEY %>&redirect_uri="+
+        "<%= APP_URL %>&message=Would you like to join me in this great app?";
+    }
+  </script>
+<% end %>
