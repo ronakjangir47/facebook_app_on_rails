@@ -11,7 +11,7 @@ class User < ActiveRecord::Base
       u.email = user_details["email"]
       u.gender = user_details["gender"]
       u.fb_uid = user_details["id"]
-      u.access_token = access_token
+      u.access_token = token
       u.save
     end
   end
