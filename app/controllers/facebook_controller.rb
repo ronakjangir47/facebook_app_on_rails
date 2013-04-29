@@ -1,5 +1,5 @@
 class FacebookController < ApplicationController
-  before_filter :ensure_user, only: [:invities]
+  before_filter :ensure_user, only: [:invities,:invite_friends]
 
   def canvas
     render :text => breakout_path, content_type: :html unless current_user
