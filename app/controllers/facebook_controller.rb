@@ -1,4 +1,5 @@
 class FacebookController < ApplicationController
+  before_filter :ensure_user, only: [:invities]
 
   def canvas
 #   user = User.last
