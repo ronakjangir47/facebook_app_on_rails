@@ -9,6 +9,7 @@ class CreateUsers < ActiveRecord::Migration
 
       t.string :fb_uid
       t.float :points
+      t.string :remember_token
       t.timestamps
     end
   end

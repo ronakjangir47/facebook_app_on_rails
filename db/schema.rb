@@ -28,8 +28,9 @@ ActiveRecord::Schema.define(:version => 20130428041030) do
     t.string   "access_token"
     t.string   "fb_uid"
     t.float    "points"
-    t.datetime "created_at",   :null => false
-    t.datetime "updated_at",   :null => false
+    t.string   "remember_token"
+    t.datetime "created_at",     :null => false
+    t.datetime "updated_at",     :null => false
   end
 
 end

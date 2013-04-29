@@ -1,6 +1,9 @@
 class User < ActiveRecord::Base
 
+  attr_accessible :first_name, :last_name, :email, :gender, :access_token, :fb_uid, :points
   has_many :invities
+
+  before_save :create_remember_token
 
   def self.fetch_details(code)
     token = $oauth.get_access_token(code)
@@ -20,8 +23,24 @@ class User < ActiveRecord::Base
     [first_name,last_name].join(" ")
   end
 
+  def store_invities(tos)
+    tos.split(",").each do |to_id|
+      if self.invities.create(:fb_uid => to_id).new_record?
+        self.errors.add(:base, "You have already get points for inviting this friend!")
+      else
+        self.points = self.points.to_i + 10
+        self.save
+      end
+    end
+  end
+
   def oauth
     Koala::Facebook::API.new(access_token)
   end
+
+  private
+    def create_remember_token
+      self.remember_token = SecureRandom.urlsafe_base64
+    end
 
 end
