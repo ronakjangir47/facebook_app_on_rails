@@ -24,8 +24,10 @@ class User < ActiveRecord::Base
   end
 
   def store_invities(tos = {})
+    invited_name = {}
     tos.values.each do |to_id|
       to_details = oauth.fql_query("select name,first_name,last_name from user where uid = #{to_id}")[0]
+      invited_name[to_id] = to_details["name"]
       if self.invities.create(:fb_uid => to_id,:first_name => to_details["first_name"], :last_name => to_details["last_name"]).new_record?
         self.errors.add(:base, "#{to_details["name"]}: You have already get points for inviting this friend!")
       else
@@ -33,7 +35,7 @@ class User < ActiveRecord::Base
         self.save
       end
     end
-    oauth.put_connections("me", "feed", :message => "@[#{self.fb_uid}] has earned free Points for inviting " + tos.map{|x| "@[#{x}]"}.join(" "))
+    oauth.put_connections("me", "feed", :message => "@#{self.name} has earned free Points for inviting " + invited_name.values.map{|x| "@#{x}"}.join(" "))
   end
 
   def oauth
